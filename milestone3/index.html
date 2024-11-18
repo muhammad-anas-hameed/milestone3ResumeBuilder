@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="container">
+
+            <h1 class="heading">Dynamic Resume Builder By Muhammad Anas</h1>
+            <div class="section">
+                <div class="cv-title">
+                    <h3>About Section</h3>
+                </div>
+
+                <div class="cv-about">
+                    <div class="col-2">
+                        <div class="form-element">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" class="form-control" placeholder="eg: John">
+                        </div>
+                        <div class="form-element">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="eg: Doe">
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="form-element">
+                            <label for="designation" class="form-label">Designation</label>
+                            <input type="text" id="designation" class="form-control" placeholder="eg: Sr.Developer">
+                        </div>
+
+                        <div class="form-element">
+                            <label for="Address" class="form-label">Address</label>
+                            <input type="text" id="Address" class="form-control" placeholder="eg: 123, xyz road.">
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="form-element">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="eg: johndoe@gmail.com">
+                        </div>
+                        <div class="form-element">
+                            <label for="phoneno" class="form-label">Phone Number</label>
+                            <input type="text" id="phoneno" class="form-control" placeholder="eg: +92 334 XXXXXXX">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="cv-title">
+                    <h3>Summary/Objective</h3>
+                </div>
+
+                <div class="cv-about">
+                    <div class="col">
+                        <div class="form-element">
+                            <label for="summary" class="form-label">Summary</label>
+                            <br>
+                            <textarea id="summary" rows="6" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="cv-title">
+                    <h3>Education</h3>
+                </div>
+
+                <div id="repeat-col-education" class="repeat-col">
+                    <div class="col">
+                        <div class="form-element">
+                            <label for="institute" class="form-label">Institute</label>
+                            <input type="text" id="institute" class="form-control instituteClass"
+                                placeholder="eg: High School">
+                        </div>
+
+                        <div class="form-element">
+                            <label for="field" class="form-label">Field</label>
+                            <input type="text" id="field" class="form-control fieldClass"
+                                placeholder="eg: Bachelor of Science">
+                        </div>
+
+                        <div class="form-element">
+                            <label for="peroid" class="form-label">Duration</label>
+                            <input type="text" id="peroid" class="form-control peroidClass"
+                                placeholder="eg: 2001 - 2005">
+                        </div>
+                    </div>
+                </div>
+                <button id="add-btn-education">+</button>
+            </div>
+
+            <div class="section">
+                <div class="cv-title">
+                    <h3>Work Experience</h3>
+                </div>
+
+                <div id="repeat-col-work" class="repeat-col">
+                    <div class="col">
+                        <div class="form-element">
+                            <label for="company" class="form-label">Company</label>
+                            <input type="text" id="company" class="form-control" placeholder="eg: Microsoft">
+                        </div>
+
+                        <div class="form-element">
+                            <label for="designations" class="form-label">Designation</label>
+                            <input type="text" id="designation" class="form-control" placeholder="eg: Sr. Developer">
+                        </div>
+
+                        <div class="form-element">
+                            <label for="durations" class="form-label">Duration</label>
+                            <input type="text" id="duration" class="form-control" placeholder="eg: 2001 - 2005">
+                        </div>
+                    </div>
+
+                </div>
+                <button id="add-btn-work">+</button>
+            </div>
+
+            <div class="section">
+                <div class="cv-title">
+                    <h3>Skills</h3>
+                </div>
+
+                <div class="cv-about">
+                    <div class="col">
+                        <div class="form-element">
+                            <label for="skills" class="form-label">Skills (comma "," separated for more)</label>
+                            <br>
+                            <textarea id="skills" rows="2" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="cv-title">
+                    <h3>Languages</h3>
+                </div>
+
+                <div class="cv-about">
+                    <div class="col">
+                        <div class="form-element">
+                            <label for="lang" class="form-label">Languages (comma "," separated for more)</label>
+                            <br>
+                            <textarea id="lang" rows="2" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="show-resume" id="show-resume">Generate Resume</button>
+        </div>
+
+        <!-- Resume Preview -->
+        <div class="resume">
+            <div class="flex">
+                <div class="col left">
+                    <!-- Profile Image -->
+                    <div class="img">
+                        <div>
+                            <img src="./img_avatar.png" alt="profile-image">
+                        </div>
+                    </div>
+
+                    <!-- Contact Detail -->
+                    <div class="left-col-inner contact">
+                        <h2>CONTACT</h2>
+                        <div class="detail">
+                            <h3>Phone</h3>
+                            <p id="resume-phoneno">+92 336 XXXXXXX</p>
+                        </div>
+                        <div class="detail">
+                            <h3>Email</h3>
+                            <p id="resume-email" style="text-overflow: ellipsis; overflow: hidden;">
+                                johndoe@gmail.com
+                            </p>
+                        </div>
+                        <div class="detail">
+                            <h3>Address</h3>
+                            <p id="resume-address" style="text-wrap: wrap;">123 Street, XYZ road.</p>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <!-- Skills -->
+                    <div class="left-col-inner skills">
+                        <h2>SKILLS</h2>
+                        <ul id="resume-skills">
+                            <li>HTML</li>
+                        </ul>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <!-- Languages -->
+                    <div class="left-col-inner lang">
+                        <h2>LANGUAGES</h2>
+                        <ul id="resume-lang">
+                            <li>English</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col right">
+                    <!-- Name and Title -->
+                    <div>
+                        <h1 id="resume-name">John Doe</h1>
+                        <h3 class="title" id="resume-title">Web Developer</h3>
+                    </div>
+
+                    <div class="line lineTop"></div>
+
+                    <!-- Summary/Objective -->
+                    <div class="summary">
+                        <h2>SUMMARY</h2>
+                        <div class="paragraph" id="resume-summary">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <!-- Education -->
+                    <div class="education">
+                        <h2>EDUCATION</h2>
+                        <div id="resume-education">
+                            <div class="flex div">
+                                <div>
+                                    <h3>Bachelor of Computer Science</h3>
+                                    <h4>ABC University</h4>
+                                    <p>
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        2021 - Ongoing
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <!-- Work Experience -->
+                    <div class="work-experience">
+                        <h2>WORK EXPERIENCE</h2>
+                        <div id="resume-experience">
+                            <div class="flex div">
+                                <div class="year">
+                                    <h3>Software Engineer</h3>
+                                    <h4>XYZ Corp</h4>
+                                    <p>
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        2018 - 2020
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btns">
+                <button id="edit-resume">Edit</button>
+                <button onclick="window.print()">Print</button>
+                <button id="download-btn">Download Resume</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const downloadBtn = document.getElementById("download-btn");
+
+        downloadBtn.addEventListener("click", downloadResume);
+
+        function downloadResume() {
+            const resumeElement = document.querySelector(".resume .flex");
+
+            // Add a class to mimic the @media print styles
+            document.body.classList.add("pdf-download");
+
+            requestAnimationFrame(() => {
+                // Use setTimeout to ensure that the class change is rendered
+                setTimeout(() => {
+                    const opt = {
+                        filename: 'resume.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2 },
+                        jsPDF: { unit: 'mm', format: 'A4', orientation: 'portrait' }
+                    };
+
+                    // Using html2pdf to download the resume section as PDF
+                    html2pdf().from(resumeElement).set(opt).save().then(() => {
+                        // Remove the class after PDF download
+                        document.body.classList.remove("pdf-download");
+                    });
+                }, 500); // Adjust the timeout duration if needed
+
+            });
+        }
+
+    </script>
+
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+</body>
+
+</html>
